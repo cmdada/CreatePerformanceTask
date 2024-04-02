@@ -15,10 +15,10 @@ def choose_word():
 def print_board(word, guessed_letters):
     display_word = ""
     for letter in word:
-        if letter in guessed_letters:
+        if letter == ' ':
+            display_word += "  "  # Always display spaces
+        elif letter in guessed_letters:
             display_word += letter + " "
-        elif letter == ' ':
-            display_word += "  "
         else:
             display_word += "_ "
     print(display_word)
@@ -53,7 +53,7 @@ def play_hangman():
 
     while hangman_parts < 9:
         print_board(word, guessed_letters)
-        guess = input("Guess a letter or the whole word: ").lower()
+        guess = input("Guess a letter or the whole phrase: ").lower()
 
         if len(guess) == 1:
             if guess in guessed_letters:
