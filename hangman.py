@@ -29,8 +29,10 @@ def is_word_guessed(word, guessed_letters):
 # Function to play the game
 def play_hangman():
     if (choose_mode() == 1):
-        
-    word = choose_word()
+            book_words = ["dog", "cat", "house", "tree", "river", "mountain", "ocean", "sun", "moon", "star"]
+            word = random.choice(book_words)
+    else:
+            word = choose_word()
     guessed_letters = []
     hangman_parts = 0
 
