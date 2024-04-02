@@ -1,6 +1,11 @@
 import random
 
 # Function to choose a word randomly from a list
+def choose_mode():
+    print('Do you want a random word, or to choose a word?')
+    print('Type "1" for random or "2" for choose.')
+    return input('choose mode: ')
+    
 def choose_word():
     return input('type a word: ')
 
@@ -23,6 +28,8 @@ def is_word_guessed(word, guessed_letters):
 
 # Function to play the game
 def play_hangman():
+    if (choose_mode() == 1):
+        
     word = choose_word()
     guessed_letters = []
     hangman_parts = 0
