@@ -2,8 +2,7 @@ import random
 
 # Function to choose a word randomly from a list
 def choose_word():
-    book_words = ["dog", "cat", "house", "tree", "river", "mountain", "ocean", "sun", "moon", "star"]
-    return random.choice(book_words)
+    return input('type a word: ')
 
 # Function to print the hangman board
 def print_board(word, guessed_letters):
