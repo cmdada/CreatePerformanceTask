@@ -49,6 +49,9 @@ def play_hangman():
         guess = input("Guess a letter or the whole word: ").lower()
 
         if len(guess) == 1:
+            if guess in guessed_letters:
+                print ('Already Guessed!')
+                hangman_parts += 1
             if guess in word:
                 print("Correct guess!")
                 guessed_letters.append(guess)
