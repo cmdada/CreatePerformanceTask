@@ -1,4 +1,5 @@
 import random
+import os
 
 # Function to choose a word randomly from a list
 def choose_mode():
@@ -11,6 +12,7 @@ def choose_word():
 
 # Function to print the hangman board
 def print_board(word, guessed_letters):
+    os.system('cls' if os.name == 'nt' else 'clear')
     display_word = ""
     for letter in word:
         if letter in guessed_letters:
