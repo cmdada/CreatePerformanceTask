@@ -17,6 +17,8 @@ def print_board(word, guessed_letters):
     for letter in word:
         if letter in guessed_letters:
             display_word += letter + " "
+        elif letter == ' ':
+            display_word += "  "
         else:
             display_word += "_ "
     print(display_word)
