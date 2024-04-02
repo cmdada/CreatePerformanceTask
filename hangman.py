@@ -7,7 +7,7 @@ def choose_mode():
     return input('choose mode: ')
     
 def choose_word():
-    return input('type a word: ')
+    return input('type a word: ').lower()
 
 # Function to print the hangman board
 def print_board(word, guessed_letters):
@@ -28,12 +28,12 @@ def is_word_guessed(word, guessed_letters):
 
 # Function to play the game
 def play_hangman():
-    mode_set = int(choose_mode())  # Convert input to integer
-    if mode_set == 1:  # Corrected comparison
+    mode_set = int(choose_mode())  
+    if mode_set == 1:
         book_words = ["dog", "cat", "house", "tree", "river", "mountain", "ocean", "sun", "moon", "star"]
         word = random.choice(book_words)
-    elif mode_set == 2:  # Corrected comparison
-        word = choose_word()  # Corrected function call
+    elif mode_set == 2:
+        word = choose_word()
     else:
         print('Incorrect Input')
         return  # Exit the function if the input is incorrect
