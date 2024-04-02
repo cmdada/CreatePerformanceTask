@@ -28,10 +28,11 @@ def is_word_guessed(word, guessed_letters):
 
 # Function to play the game
 def play_hangman():
-    if (choose_mode() == 1):
+    mode_set = choose_mode()
+    if (mode_set == 1):
             book_words = ["dog", "cat", "house", "tree", "river", "mountain", "ocean", "sun", "moon", "star"]
             word = random.choice(book_words)
-    elif (choose_mode() == 2):
+    elif (mode_set == 2):
             word = choose_word
     else:
         print('Incorrect Input')
