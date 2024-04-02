@@ -31,7 +31,7 @@ def play_hangman():
     print("Welcome to Hangman!")
     print("Try to guess the word.")
 
-    while hangman_parts < 7:
+    while hangman_parts < 9:
         print_board(word, guessed_letters)
         guess = input("Guess a letter or the whole word: ").lower()
 
