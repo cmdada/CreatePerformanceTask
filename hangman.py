@@ -1,5 +1,6 @@
 import random
 import os
+os.system('cls' if os.name == 'nt' else 'clear')
 
 # Function to choose a word randomly from a list
 def choose_mode():
@@ -12,7 +13,6 @@ def choose_word():
 
 # Function to print the hangman board
 def print_board(word, guessed_letters):
-    os.system('cls' if os.name == 'nt' else 'clear')
     display_word = ""
     for letter in word:
         if letter in guessed_letters:
@@ -36,7 +36,10 @@ def play_hangman():
         word = random.choice(book_words)
     elif mode_set == 2:
         word = choose_word()
+        os.system('cls' if os.name == 'nt' else 'clear')
+
     else:
+        os.system('cls' if os.name == 'nt' else 'clear')
         print('Incorrect Input')
         return  # Exit the function if the input is incorrect
 
@@ -52,9 +55,11 @@ def play_hangman():
 
         if len(guess) == 1:
             if guess in guessed_letters:
+                os.system('cls' if os.name == 'nt' else 'clear')
                 print ('Already Guessed!')
                 hangman_parts += 1
             elif guess in word:
+                os.system('cls' if os.name == 'nt' else 'clear')
                 print("Correct guess!")
                 guessed_letters.append(guess)
                 if is_word_guessed(word, guessed_letters):
@@ -62,6 +67,7 @@ def play_hangman():
                     print("Congratulations! You guessed the word:", word)
                     return
             else:
+                os.system('cls' if os.name == 'nt' else 'clear')
                 print("Incorrect guess!")
                 hangman_parts += 1
         elif len(guess) > 1:
