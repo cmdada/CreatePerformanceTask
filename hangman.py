@@ -31,8 +31,10 @@ def play_hangman():
     if (choose_mode() == 1):
             book_words = ["dog", "cat", "house", "tree", "river", "mountain", "ocean", "sun", "moon", "star"]
             word = random.choice(book_words)
-    elif (choose_mode() == 1):
-            word = choose_word()
+    elif (choose_mode() == 2):
+            word = choose_word
+    else:
+        print('Incorrect Input')
     guessed_letters = []
     hangman_parts = 0
 
