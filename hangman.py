@@ -2,6 +2,85 @@ import random
 import os
 os.system('cls' if os.name == 'nt' else 'clear')
 
+hangman = '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+========='''
+hangman2 = '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+========='''
+hangman3 = '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+========='''
+hangman4 = '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+========='''
+hangman5 = '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''' 
+hangman6 = '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=======
+==''' 
+
+hangman7 = '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+========='''
+
+hangman8 = '''
+  +---+
+  -   |
+  O   |
+ /|\o |
+ / \  |
+      |
+========='''
+
+hangman9 = '''
+  +---+
+  |   |
+  O   |
+o/|\o |
+ / \  |
+      |
+========='''
+
+
+
 # Function to choose a word randomly from a list
 def choose_mode():
     print('Do you want a random word, or to choose a word?')
