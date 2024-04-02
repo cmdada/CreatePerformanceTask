@@ -132,8 +132,27 @@ def play_hangman():
 
     while hangman_parts < 9:
         print_board(word, guessed_letters)
-        guess = input("Guess a letter or the whole phrase: ").lower()
+        if hangman_parts == 1:
+            print(hangman)
+        if hangman_parts == 2:
+            print(hangman2)
+        if hangman_parts == 3:
+            print(hangman3)
+        if hangman_parts == 4:
+            print(hangman4)
+        if hangman_parts == 5:
+            print(hangman5)
+        if hangman_parts == 6:
+            print(hangman6)
+        if hangman_parts == 7:
+            print(hangman7)
+        if hangman_parts == 8:
+            print(hangman8)
+        if hangman_parts == 9:
+            print(hangman9)
+        
 
+        guess = input("Guess a letter or the whole phrase: ").lower()
         if len(guess) == 1:
             if guess in guessed_letters:
                 os.system('cls' if os.name == 'nt' else 'clear')
@@ -158,8 +177,8 @@ def play_hangman():
             else:
                 print("Incorrect guess!")
                 hangman_parts += 1
-
+    os.system('cls' if os.name == 'nt' else 'clear')
     print("Sorry, you lost. The word was:", word)
-
+    print(hangman9)
 # Start the game
 play_hangman()
