@@ -52,7 +52,7 @@ def play_hangman():
             if guess in guessed_letters:
                 print ('Already Guessed!')
                 hangman_parts += 1
-            if guess in word:
+            elif guess in word:
                 print("Correct guess!")
                 guessed_letters.append(guess)
                 if is_word_guessed(word, guessed_letters):
