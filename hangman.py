@@ -111,7 +111,7 @@ def is_word_guessed(word, guessed_letters):
             return False
     return True
 # Function to play the game. First if checks if user selected mode random. If true, chooses random word for use by assigning random word from list "book_words" to variable "word"
-
+# If user selects choose via giving an input of 2, func will ask for a word input to be used
 def play_hangman():
     mode_set = int(choose_mode())  
     if mode_set == 1:
@@ -125,12 +125,14 @@ def play_hangman():
         os.system('cls' if os.name == 'nt' else 'clear')
         print('Incorrect Input')
         return  # Exit the function if the input is incorrect
-
+# Empty list that will be updated with letters the used has guessed
     guessed_letters = []
+# Var to count how many incorrect guesses has been used
     hangman_parts = 0
 
     print("Welcome to Hangman!")
     print("Try to guess the word.")
+# Embedded function that draws hangman ascii art every turn based on value of "hangman_parts"
     while hangman_parts < 9:
         print_board(word, guessed_letters)
         if hangman_parts == 1:
@@ -151,7 +153,9 @@ def play_hangman():
             print(hangman8)
         if hangman_parts == 9:
             print(hangman9)
-      
+# Code block that works to allow the user to guess letters or an entire word.
+# Works by asking for text input. If input is 1 letter, program knows player is guessing individual letters. Checks if user input is equal to any letters in "word". If so, adds to "guessed_letters"
+# If input is >1 letter, program knows player is guessing final word. Checks if word guess is equal to "word"
         guess = input("Guess a letter or the whole phrase: ").lower()
         if len(guess) == 1:
             if guess in guessed_letters:
