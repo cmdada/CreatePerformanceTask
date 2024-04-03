@@ -112,7 +112,7 @@ def is_word_guessed(word, guessed_letters):
     return True
 
 def print_ascii():
-   while hangman_parts < 9:
+    while hangman_parts < 9:
         print_board(word, guessed_letters)
         if hangman_parts == 1:
             print(hangman)
