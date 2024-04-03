@@ -50,9 +50,7 @@ hangman6 = '''
  /|\  |
  /    |
       |
-=======
-==''' 
-
+=========''' 
 hangman7 = '''
   +---+
   |   |
@@ -61,7 +59,6 @@ hangman7 = '''
  / \  |
       |
 ========='''
-
 hangman8 = '''
   +---+
   -   |
@@ -70,7 +67,6 @@ hangman8 = '''
  / \  |
       |
 ========='''
-
 hangman9 = '''
   +---+
   |   |
@@ -79,8 +75,6 @@ o/|\o |
  / \  |
       |
 ========='''
-
-
 
 # Function that is called later under "play_hangman." Returns a user input to decide the mode.
 def choose_mode():
@@ -110,6 +104,7 @@ def is_word_guessed(word, guessed_letters):
         if letter not in guessed_letters:
             return False
     return True
+  
 # Function to play the game. First if checks if user selected mode random. If true, chooses random word for use by assigning random word from list "book_words" to variable "word"
 # If user selects choose via giving an input of 2, func will ask for a word input to be used
 def play_hangman():
@@ -125,13 +120,14 @@ def play_hangman():
         os.system('cls' if os.name == 'nt' else 'clear')
         print('Incorrect Input')
         return  # Exit the function if the input is incorrect
+      
 # Empty list that will be updated with letters the used has guessed
     guessed_letters = []
 # Var to count how many incorrect guesses has been used
     hangman_parts = 0
-
     print("Welcome to Hangman!")
     print("Try to guess the word.")
+  
 # Embedded function that draws hangman ascii art every turn based on value of "hangman_parts"
     while hangman_parts < 9:
         print_board(word, guessed_letters)
@@ -153,11 +149,10 @@ def play_hangman():
             print(hangman8)
         if hangman_parts == 9:
             print(hangman9)
+          
 # Code block that works to allow the user to guess letters or an entire word.
-# Works by asking for text input. If input is 1 letter, program knows player is guessing individual letters. Checks if user input is equal to any letters in "word". If so, adds to "guessed_letters"
-# If input is >1 letter, program knows player is guessing final word. Checks if word guess is equal to "word"
         guess = input("Guess a letter or the whole phrase: ").lower()
-        if len(guess) == 1:
+        if len(guess) == 1: # Works by asking for text input. If input is 1 letter, program knows player is guessing individual letters. Checks if user input is equal to any letters in "word". If so, adds to "guessed_letters"
             if guess in guessed_letters:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print ('Already Guessed!')
@@ -170,19 +165,20 @@ def play_hangman():
                     print_board(word, guessed_letters)
                     print("Congratulations! You guessed the word:", word)
                     return
-            else:
+            else: # If returns false, tells user and adds 1 to "hangman_parts"
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print("Incorrect guess!")
                 hangman_parts += 1
-        elif len(guess) > 1:
+        elif len(guess) > 1: # If input is >1 letter, program knows player is guessing final word. Checks if word guess is equal to "word"
             if guess == word:
                 print("Congratulations! You guessed the word:", word)
                 return
-            else:
+            else: # If returns false, tells user and adds 1 to "hangman_parts"
                 print("Incorrect guess!")
                 hangman_parts += 1
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Sorry, you lost. The word was:", word)
     print(hangman9)
+    time.sleep(5)
 # Start the game
 play_hangman()
