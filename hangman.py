@@ -155,7 +155,8 @@ def play_hangman():
     print("Welcome to Hangman!")
     print("Try to guess the word.")
     print_ascii()
-      
+
+    while hangman_parts < 9:
         guess = input("Guess a letter or the whole phrase: ").lower()
         if len(guess) == 1:
             if guess in guessed_letters:
