@@ -1,7 +1,8 @@
 import random
 import os
+# Clears import messages. Same code used later to clear all previous steps.
 os.system('cls' if os.name == 'nt' else 'clear')
-
+# Variables to store ascii arts, are drawn later by func play_hangman
 hangman = '''
   +---+
   |   |
@@ -81,16 +82,17 @@ o/|\o |
 
 
 
-# Function to choose a word randomly from a list
+# Function that is called later under "play_hangman." Returns a user input to decide the mode.
 def choose_mode():
     print('Do you want a random word, or to choose a word?')
     print('Type "1" for random or "2" for choose.')
     return input('choose mode: ')
-    
+# Returns a string from the user for mode type "choose"    
 def choose_word():
     return input('type a word: ').lower()
 
-# Function to print the hangman board
+# Function to print the hangman board. Works by finding the number of letters in rand or input word, and writes a "_" for each.
+# Function later checks to see if user has correctly guessed any letters by checking contents of "guessed_letters" and if they match any in "display_word"
 def print_board(word, guessed_letters):
     display_word = ""
     for letter in word:
@@ -102,14 +104,14 @@ def print_board(word, guessed_letters):
             display_word += "_ "
     print(display_word)
 
-# Function to check if the word has been guessed
+# Function to check if the word has been guessed. Goes by letter in "word" and checks if it is contained in list "guessed_letters"
 def is_word_guessed(word, guessed_letters):
     for letter in word:
         if letter not in guessed_letters:
             return False
     return True
+# Function to play the game. First if checks if user selected mode random. If true, chooses random word for use by assigning random word from list "book_words" to variable "word"
 
-# Function to play the game
 def play_hangman():
     mode_set = int(choose_mode())  
     if mode_set == 1:
@@ -129,7 +131,6 @@ def play_hangman():
 
     print("Welcome to Hangman!")
     print("Try to guess the word.")
-
     while hangman_parts < 9:
         print_board(word, guessed_letters)
         if hangman_parts == 1:
@@ -150,8 +151,7 @@ def play_hangman():
             print(hangman8)
         if hangman_parts == 9:
             print(hangman9)
-        
-
+      
         guess = input("Guess a letter or the whole phrase: ").lower()
         if len(guess) == 1:
             if guess in guessed_letters:
